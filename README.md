@@ -2,6 +2,7 @@
 Getting and Cleaning Data Course Project
 ==================================================================
 Human Activity Recognition Using Smartphones Dataset
+
 Version 2.0
 ==================================================================
 Raw Data obtained from : 
@@ -11,6 +12,7 @@ DITEN - Università degli Studi di Genova.
 Via Opera Pia 11A, I-16145, Genoa, Italy.
 activityrecognition@smartlab.ws
 www.smartlab.ws
+
 ==================================================================
 
 This document presents a solution to sort the raw data collected during the experiment and stored in ".txt" files. 
@@ -32,6 +34,7 @@ Manipulation on the initial data to obtain the current version using the run_ana
 ======================================
 
 The "run_analysis" function uploads the "X_test" and "X_train" datasets and merges them in one unique dataset named "X" in 3 steps : 
+
 1/ Upload both documents "X_test.txt" and "X_train.txt" to "X_test" and "X_train" data.frames respectively using read.table.
    Both datasets have 561 columns, each corresponding to one feature. Once the upload is complete, we add a new column "group" and pass it the value "test" or "train", so that we can remember to which group it belongs.
     
