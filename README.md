@@ -30,7 +30,6 @@ have only low frequency components, therefore a filter with 0.3 Hz cutoff freque
 obtained by calculating variables from the time and frequency domain. See 'features_info.txt' for more details. 
 
 For each record it is provided:
-======================================
 
 - Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
 - Triaxial Angular velocity from the gyroscope. 
@@ -40,7 +39,7 @@ For each record it is provided:
 
 Note : Features are normalized and bounded within [-1,1].
 
-Manipulation on the initial data to obtain the current version using the run_analysis function
+Explanation of the run_analysis function
 ======================================
 
 The "run_analysis" function runs in 5 steps, each corresponding to one of the requirements of the Coursera assignment : 
