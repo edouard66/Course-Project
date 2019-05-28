@@ -92,4 +92,4 @@ run_analysis <- function() {
       print("End of analysis.")
 }
 
-##Thank you for reviewing
+##Thank you for reviewing!
