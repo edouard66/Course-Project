@@ -50,31 +50,31 @@ I used the same process to upload separately tables for the test group and the t
    - Both datasets have 561 columns, each corresponding to one feature. 
    - Add a column "group" and pass it the value "test" or "train", so that we can remember to which group it belonged initially.
    - We need 2 more columns to store subject and activity. To do so, upload the corresponding files and use the cbind function.
-> Once both sets are ready, merge them in a single dataframe named "X" using the rbind function.
+Once both sets are ready, merge them in a single dataframe named "X" using the rbind function.
 This single dataset should have 564 colums and 10 299 rows.
-   This step corresponds to requirement 1 in the Coursera assignment.
+   > This step corresponds to requirement 1 in the Coursera assignment.
 
 **2/** Let's import the file with variable labels and use it to appropriately label the data set with descriptive variable names.
 To do so, upload the "features.txt" file into a data frame named "features".
 In this data frame, make sure that the class of the 2nd column is "character". 
 Then add 3 additional labels "group", "subject" and "activity" to match the corresponding columns created during step 1. 
 Finally, use the function "colnames" to pass those labels into the column names of the data.frame "X".
-   This step corresponds to requirement 4 in the Coursera assignment.
+   > This step corresponds to requirement 4 in the Coursera assignment.
 
 **3/** Let's use descriptive activity names to name the activities in the data set. 
 First, upload the activity labels from the corresponding file "activity-labels.txt" in a data frame called activity_labels.
 Now, we need to match the numeric values from our dataset to the activity labels.
 Use nested loops to review each row of the dataset "X" and compare the value of the "activity" variable with the value assigned to each activity in the activity_labels data frame. 
 Whenever the two values match, the corresponding activity label is passed into the row. 
-   This step correspond to requirement 3 in the Coursera assignment.
+   > This step corresponds to requirement 3 in the Coursera assignment.
 
 **4/** Let's extract only the measurements on the mean and standard deviation for each measurement.
 Use a regexp to select variables using the Mean() or Std() functions. Among the dataset, there were several variables using the words "Mean" and "Std" without brackets. I chose to ignore those variables and focus on the variables where I was sure to use the function mean() or std()
-   This step corresponds to requirement 2 in the Coursera assignment.
+   > This step corresponds to requirement 2 in the Coursera assignment.
 
 **5/** From the data set in step 4, create a second, independent tidy data set named "finalX" with the average of each variable for each activity and each subject.
 The function group_by allows us to sort the data using different levels. We can also use the "group" level to remind us whether the subject was in test group or train group.
-   This step corresponds to requirement 5 in the Coursera assignment.
+   > This step corresponds to requirement 5 in the Coursera assignment.
 
 License:
 ========
