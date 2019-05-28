@@ -1,4 +1,3 @@
-# Course-Project
 Getting and Cleaning Data Course Project
 ==================================================================
 Human Activity Recognition Using Smartphones Dataset
@@ -30,21 +29,6 @@ components, was separated using a Butterworth low-pass filter into body accelera
 have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was
 obtained by calculating variables from the time and frequency domain. See 'features_info.txt' for more details. 
 
-Manipulation on the initial data to obtain the current version using the run_analysis function
-======================================
-
-The "run_analysis" function uploads the "X_test" and "X_train" datasets and merges them in one unique dataset named "X" in 3 steps : 
-
-1/ Upload both documents "X_test.txt" and "X_train.txt" to "X_test" and "X_train" data.frames respectively using read.table.
-   Both datasets have 561 columns, each corresponding to one feature. Once the upload is complete, we add a new column "group" and pass it the value "test" or "train", so that we can remember to which group it belongs.
-    
-2/ Using the rbind function, we merge both dataframes in a single dataframe named "X".
-
-3/ We add column labels using the "features" labels. To do so we upload the .txt file into a data frame named "features".
-  In this data frame, we make sure that the class of the 2nd column is "character". 
-  Then we add the label "group" to match the column "group" that was created at step 1. 
-  Finally, we use the colnames function to update the column names of the data.frame "X".
-
 For each record it is provided:
 ======================================
 
@@ -54,10 +38,44 @@ For each record it is provided:
 - Its activity label. 
 - An identifier of the subject who carried out the experiment.
 
-Notes: 
-======
-- Features are normalized and bounded within [-1,1].
-- Each feature vector is a row on the text file.
+Note : Features are normalized and bounded within [-1,1].
+
+Manipulation on the initial data to obtain the current version using the run_analysis function
+======================================
+
+The "run_analysis" function uploads the "test" and "train" datasets and merges them in one unique dataset named "X" in 3 steps : 
+
+1/ Let's download the zip file from the website and unzip the data.
+I used the same process to upload separately tables for the test group and the train group : 
+   - Using the read.table function on the documents "X_test.txt" and "X_train.txt", we create 2 data frames to "X_test" and "X_train".
+   - Both datasets have 561 columns, each corresponding to one feature. 
+   - Add a column "group" and pass it the value "test" or "train", so that we can remember to which group it belonged initially.
+   - We need 2 more columns to store subject and activity. To do so, upload the corresponding files and use the cbind function.
+Once both sets are ready, merge them in a single dataframe named "X" using the rbind function.
+This single dataset should have 564 colums and 10 299 rows.
+   This step corresponds to requirement 1 in the Coursera assignment.
+
+2/ Let's import the file with variable labels and use it to appropriately label the data set with descriptive variable names.
+To do so, upload the "features.txt" file into a data frame named "features".
+In this data frame, make sure that the class of the 2nd column is "character". 
+Then add 3 additional labels "group", "subject" and "activity" to match the corresponding columns created during step 1. 
+Finally, use the function "colnames" to pass those labels into the column names of the data.frame "X".
+   This step corresponds to requirement 4 in the Coursera assignment.
+
+3/ Let's use descriptive activity names to name the activities in the data set. 
+First, upload the activity labels from the corresponding file "activity-labels.txt" in a data frame called activity_labels.
+Now, we need to match the numeric values from our dataset to the activity labels.
+Use nested loops to review each row of the dataset "X" and compare the value of the "activity" variable with the value assigned to each activity in the activity_labels data frame. 
+Whenever the two values match, the corresponding activity label is passed into the row. 
+   This step correspond to requirement 3 in the Coursera assignment.
+
+4/ Let's extract only the measurements on the mean and standard deviation for each measurement.
+Use a regexp to select variables using the Mean() or Std() functions. Among the dataset, there were several variables using the words "Mean" and "Std" without brackets. I chose to ignore those variables and focus on the variables where I was sure to use the function mean() or std()
+   This step corresponds to requirement 2 in the Coursera assignment.
+
+5/ From the data set in step 4, create a second, independent tidy data set named "finalX" with the average of each variable for each activity and each subject.
+The function group_by allows us to sort the data using different levels. We can also use the "group" level to remind us whether the subject was in test group or train group.
+   This step corresponds to requirement 5 in the Coursera assignment.
 
 License:
 ========
