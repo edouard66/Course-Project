@@ -50,7 +50,7 @@ I used the same process to upload separately tables for the test group and the t
    - Both datasets have 561 columns, each corresponding to one feature. 
    - Add a column "group" and pass it the value "test" or "train", so that we can remember to which group it belonged initially.
    - We need 2 more columns to store subject and activity. To do so, upload the corresponding files and use the cbind function.
-Once both sets are ready, merge them in a single dataframe named "X" using the rbind function.
+> Once both sets are ready, merge them in a single dataframe named "X" using the rbind function.
 This single dataset should have 564 colums and 10 299 rows.
    This step corresponds to requirement 1 in the Coursera assignment.
 
